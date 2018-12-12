@@ -1,0 +1,7 @@
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\bin\Debug\GameOfTwStacks.exe.config
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\bin\Debug\GameOfTwStacks.exe
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\bin\Debug\GameOfTwStacks.pdb
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\obj\Debug\GameOfTwoStacks.csprojAssemblyReference.cache
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\obj\Debug\GameOfTwoStacks.csproj.CoreCompileInputs.cache
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\obj\Debug\GameOfTwStacks.exe
+C:\Users\bcromo\source\repos\GameOfTwStacks\GameOfTwStacks\obj\Debug\GameOfTwStacks.pdb
