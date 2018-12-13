@@ -2,22 +2,23 @@
 
 namespace GameOfTwoStacks
 {
-    class GameOfTwoStacks
+    public class GameOfTwoStacks
     {
-        static int twoStacks(int x, int[] a, int[] b)
+        public static int twoStacks(int x, int[] a, int[] b)
         {
+            
+            int[] sumStackA = new int[a.Length + 1];
+            int sumStackB = 0;
+            int sumTotalStacks = 0;
             int countA = 0;
-            int somattor = 0;
-            int somattorB = 0;
-            int[] somattorA = new int[a.Length + 1];
             int result = 0;
 
             for (int i = 0; i < a.Length; i++)
             {
-                somattorA[i + 1] = somattorA[i] + a[i];
-                somattor += a[i];
+                sumStackA[i + 1] = sumStackA[i] + a[i];
+                sumTotalStacks += a[i];
 
-                if (somattor <= x)
+                if (sumTotalStacks <= x)
                 {
                     result = i + 1;
                 }
@@ -29,36 +30,59 @@ namespace GameOfTwoStacks
 
             }
             countA = result;
-            somattor = 0;
+            sumTotalStacks = 0;
             for (int i = 0; i < b.Length; i++)
             {
-                somattorB += b[i];
-                somattor = somattorA[countA] + somattorB;
+                sumStackB += b[i];
+                sumTotalStacks = sumStackA[countA] + sumStackB;
 
-                if (somattor <= x)
+                if (sumTotalStacks <= x)
                 {
                     result = verifyCountA(result, countA, i);
                 }
                 else countA--;
 
-                if (somattorB <= x)
+                if (sumStackB <= x)
                 {
                     result = verifyResult(result, i);
                 }
                 else break;
-                somattor = 0;
+                sumTotalStacks = 0;
             }
             return result;
         }
 
-        static int verifyResult(int result, int positon)
+        public static int verifyResult(int result, int positon)
         {
-           return result > positon + 1 ? result : positon + 1;
+            if (result > positon + 1)
+            {
+                return result;
+            }
+            return positon + 1;
         }
 
-        static int verifyCountA(int result, int countA, int position)
+        public static int verifyCountA(int result, int countA, int position)
         {
-            return result > countA + position + 1 ? result : countA + position + 1;
+            if (result > countA + position + 1)
+            {
+                return result;
+            }
+                return countA + position + 1;
+                       
+        }
+
+        public static int readAndProcessInput()
+        {
+            string[] nmx = Console.ReadLine().Split(' ');
+            int x = Convert.ToInt32(nmx[2]);
+            int[] a = convertInputToArray(Console.ReadLine());
+            int[] b = convertInputToArray(Console.ReadLine());
+            return twoStacks(x, a, b);
+        }
+
+        public static int[] convertInputToArray(string input)
+        {
+            return Array.ConvertAll(input.Split(' '), aTemp => Convert.ToInt32(aTemp));
         }
 
         static void Main(string[] args)
@@ -70,15 +94,6 @@ namespace GameOfTwoStacks
                 Console.WriteLine(readAndProcessInput());
             }
             Console.Read();
-        }
-
-        static int readAndProcessInput()
-        {
-            string[] nmx = Console.ReadLine().Split(' ');
-            int x = Convert.ToInt32(nmx[2]);
-            int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp));
-            int[] b = Array.ConvertAll(Console.ReadLine().Split(' '), bTemp => Convert.ToInt32(bTemp));
-            return twoStacks(x, a, b);
-        }
+        }        
     }
 }
